@@ -211,3 +211,32 @@ const pets = [
       imageUrl: "http://lsae2.iypcdn.com/static//modules/uploads/photos/language1/dino-live-22.jpg?119"
     }
   ];
+
+
+  const printToDom = (divId, textToPrint) => {
+    const selectedDiv = document.querySelector(divId);
+    selectedDiv.innerHTML = textToPrint;
+  }
+
+  const petsBuilder = (taco) => {
+    let domString = "";
+    for (const [i, item] of taco.entries()) {
+      domString += `<div class="card my-2" style="width: 18rem;" id=${i}>
+      <div class="card-body">
+        <p class="card-text">${item.name}</p>
+        <div class="img-container" style="background-image: url('${item.imageUrl}');"></div>
+        <p class="card-text">${item.color}</p>
+        <p class="card-text">${item.specialSkill}</p>
+        <p class="card-text">${item.type}</p>
+      </div>
+    </div>`;
+    }
+  
+    printToDom('#pets', domString);
+  }
+
+  const init = () => {
+    petsBuilder(pets);
+  }
+  
+  init();
