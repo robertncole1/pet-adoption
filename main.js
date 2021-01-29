@@ -235,8 +235,36 @@ const pets = [
     printToDom('#pets', domString);
   }
 
+
+  const handleButtonClick = (e) => {
+    const buttonId = e.target.id;
+    const selectedPets = [];
+    // UPDATE THE PIES BASED ON BUTTON CLICKED
+    for (let i = 0; i < pets.length; i++) {
+      if(pets[i].type === buttonId) {
+        selectedPets.push(pets[i]);
+      }
+    }
+  
+    if (buttonId === 'all') {
+      petsBuilder(pets);
+    } else {
+      petsBuilder(selectedPets);
+    }
+  
+    console.log(filtered);
+  }
+
+  const buttonEvents = () => {
+    document.querySelector('#all').addEventListener('click', handleButtonClick);
+    document.querySelector('#dog').addEventListener('click', handleButtonClick);
+    document.querySelector('#cat').addEventListener('click', handleButtonClick);
+    document.querySelector('#dino').addEventListener('click', handleButtonClick);
+  }
+
   const init = () => {
     petsBuilder(pets);
+    buttonEvents();
   }
   
   init();
