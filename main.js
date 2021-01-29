@@ -1,3 +1,4 @@
+console.log('Hello World');
 const pets = [
     {
       name: "Dusty",
