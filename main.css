@@ -3,7 +3,12 @@ body {
 }
 
 .img-container {
-  height: 200px;
   background-size: cover;
   background-position: center;
+  width: 200px;
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+  margin: auto;
 }
